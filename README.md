@@ -1,9 +1,15 @@
 # COVID-19 Data Analysis
 
+## Table of Contents
+- [Project Overview](#Project-Overview)
+- [Data Sources](#Data-Sources)
+- [Tools Used](#Tools)
+- [Data Cleaning](#Data-Cleaning)
+
 ### Project Overview
 This project aims to provide insight into the impacts of COVID-19 on various countries. By analyzing various aspects of data, we seek to identify trends and gain a deeper understanding of the situation.
 
-### Data Souces.
+### Data Soruces
 The dataset used for this analysis are:
 - CovidDeaths.Xlsx
 - CovidVaccinations.xlsx
@@ -16,8 +22,8 @@ The dataset used for this analysis are:
 
 ### Data Cleaning
 In initial data preparation phase, the following steps are performed
-Data inspection
-Data formatting
+1. Data inspection
+2. Data formatting
 
 ### Exploratory Data Analysis
 The data is exploresd to answer the following questions
