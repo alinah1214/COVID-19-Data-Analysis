@@ -26,14 +26,45 @@ In initial data preparation phase, the following steps are performed
 2. Data formatting
 
 ### Exploratory Data Analysis
-The data is exploresd to answer the following questions
+The data is explored to answer the following questions.
 
+
+How many people are infected country-wise?
  
 ```sql
-Slect * from 
+Select location, population,max(total_cases) as Highest_Affected_Cases, max((total_cases/population))* 100 as Affected_people_percentage from COVID_19_DATA_ANALYSIS..CovidDeaths
+where continent is not null
+group by location, population 
 ```
 
+What is the death rate continent-wise?
+
+```sql
+select location, sum(cast (new_deaths as int)) as Total_death_count from COVID_19_DATA_ANALYSIS..CovidDeaths
+where continent is null and location not in ('world', 'European union', 'International')
+group by location
+order by Total_death_count  desc
+```
+
+How many people are vaccinated in each country?
+
+```sql
+with cte_Vac (date, location,population,Rolling_vaccination_Rate)
+as
+(
+Select cov. date, cov.location,population,   sum(cast(vac.new_vaccinations as int))over(partition by cov.location) as Rolling_vaccination_Rate from COVID_19_DATA_ANALYSIS..CovidDeaths as cov
+join COVID_19_DATA_ANALYSIS..CovidVaccinations as vac
+on cov.location = vac.location
+and cov.date = vac.date
+where cov.continent is not null
+)
+```
+select date, location , population , (Rolling_vaccination_Rate/population)*100 as vaccinated_people_percentage from cte_Vac;
+
+
 ### Findings
+
+
 
 
 
