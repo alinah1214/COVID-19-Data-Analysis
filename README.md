@@ -1,27 +1,22 @@
 # COVID-19 Data Analysis
 
-## Table of Contents
-- [Project Overview](#Project-Overview)
-- [Data Sources](#Data-Sources)
-- [Tools Used](#Tools)
-- [Data Cleaning](#Data-Cleaning)
 
 ### Project Overview
-This project aims to provide insight into the impacts of COVID-19 on various countries. By analyzing various aspects of data, we seek to identify trends and gain a deeper understanding of the situation.
+This project aims to provide insight into the impacts of COVID-19 on various countries, to identify the most affected country, and to assess how it will impact that country in the future. By analyzing various aspects of data, we seek to identify trends and gain a deeper understanding of the situation.
 
 ### Data Soruces
-The dataset used for this analysis are:
+The dataset used for this analysis contains data from January 2020 to April 2021, which includes:
 - CovidDeaths.Xlsx
 - CovidVaccinations.xlsx
 
 ### Tools
 - Excel - Data Cleaning
 - SQL Server - Data anlysis
-- Power BI - Data Visualization
+- Tableau - Data Visualization
 
 
 ### Data Cleaning
-In initial data preparation phase, the following steps are performed
+In the initial data preparation phase, the following steps are performed:
 1. Data inspection
 2. Data formatting
 
@@ -37,6 +32,7 @@ where continent is not null
 group by location, population 
 ```
 
+
 What is the death rate continent-wise?
 
 ```sql
@@ -45,6 +41,7 @@ where continent is null and location not in ('world', 'European union', 'Interna
 group by location
 order by Total_death_count  desc
 ```
+
 
 How many people are vaccinated in each country?
 
@@ -58,14 +55,31 @@ on cov.location = vac.location
 and cov.date = vac.date
 where cov.continent is not null
 )
-```
 select date, location , population , (Rolling_vaccination_Rate/population)*100 as vaccinated_people_percentage from cte_Vac;
-
+```
 
 ### Findings
 
 
+![Graph 1](https://github.com/alinah1214/COVID-19-Data-Analysis/assets/149886043/44aca03b-40d0-49a9-a8fe-1c60fcd6f7d9)
 
+
+
+
+
+![Graph 3](https://github.com/alinah1214/COVID-19-Data-Analysis/assets/149886043/9208f88d-b211-46a0-8206-4961fe6222d4)
+
+
+
+
+![Graph 2](https://github.com/alinah1214/COVID-19-Data-Analysis/assets/149886043/a053f98a-636c-43c4-bd18-20e3e9ecff3f)
+
+
+
+
+
+- Europe has the highest death rate compared to other continents, and within Europe, the United States is the most infected country with COVID-19.
+- The graph shows that if deaths continue at this rate, the death toll in the US could increase from 8.93% to 19.11% by the end of September 2021
 
 
 
