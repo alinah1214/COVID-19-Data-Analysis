@@ -4,7 +4,7 @@
 ### Project Overview
 This project aims to provide insight into the impacts of COVID-19 on various countries, to identify the most affected country, and to assess how it will impact that country in the future. By analyzing various aspects of data, we seek to identify trends and gain a deeper understanding of the situation.
 
-### Data Soruces
+### Data Sources
 The dataset used for this analysis contains data from January 2020 to April 2021, which includes:
 - CovidDeaths.Xlsx
 - CovidVaccinations.xlsx
